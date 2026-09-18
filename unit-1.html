@@ -108,6 +108,40 @@
       text-align: center;
     }
 
+    .image-gallery {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-bottom: 2rem;
+    }
+
+    .image-gallery a {
+      display: block;
+    }
+
+    .image-gallery img {
+      border: 3px solid transparent;
+      border-radius: 0.5rem;
+      display: block;
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      width: 100%;
+    }
+
+    .image-gallery img:hover,
+    .image-gallery img:focus {
+      border-color: var(--purple);
+      transform: scale(1.03);
+    }
+
+    .image-caption {
+      color: #5b5268;
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+      text-align: center;
+    }
+
     .paragraph-space {
       border-bottom: 1px solid #ddd6fe;
       min-height: 4rem;
@@ -118,6 +152,18 @@
       color: white;
       padding: 1rem;
       text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .image-gallery {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -145,6 +191,22 @@
 
     <section class="content blog-post" aria-labelledby="blog-title">
       <h2 id="blog-title">Blog: Generic Medication Failures</h2>
+
+      <div class="image-gallery" aria-label="Blog images">
+        <figure>
+          <a href="4%20Patterns.jpg" target="_blank" rel="noopener" aria-label="Open 4 Patterns image in a larger view">
+            <img src="4%20Patterns.jpg" alt="Four patterns" loading="lazy">
+          </a>
+          <figcaption class="image-caption">4 Patterns</figcaption>
+        </figure>
+        <figure>
+          <a href="999%20My%20Patterns%20and%20Phenomenon%20Photo.jpg" target="_blank" rel="noopener" aria-label="Open My Patterns and Phenomenon Photo image in a larger view">
+            <img src="999%20My%20Patterns%20and%20Phenomenon%20Photo.jpg" alt="My patterns and phenomenon photo" loading="lazy">
+          </a>
+          <figcaption class="image-caption">My Patterns and Phenomenon Photo</figcaption>
+        </figure>
+      </div>
+
       <p class="paragraph-space"></p>
       <p class="paragraph-space"></p>
       <p class="paragraph-space"></p>
